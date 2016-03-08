@@ -41,10 +41,8 @@ public class GuestList {
             if (filters == null)
                 System.out.println(getName(guest, options[0]));
             String filteredOutput = filterForEachFilter(guest);
-            if (filteredOutput != "") {
+            if (!filteredOutput.equals("")) {
                 System.out.println(getName(guest, options[0])  + filteredOutput);
-
-
             }
         }
     }

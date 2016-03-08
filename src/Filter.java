@@ -1,4 +1,4 @@
 public interface Filter {
-    public boolean isValid(Person guest);
-    public String getEntity();
+    boolean isValid(Person guest);
+    String getEntity();
 }
