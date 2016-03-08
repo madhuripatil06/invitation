@@ -1,7 +1,7 @@
 import java.io.*;
 
-public class PrintLable {
-    public static void main(String[] args) throws FileNotFoundException ,IOException{
+public class PrintLabel {
+    public static void main(String[] args) throws IOException{
         ArgumentSplitter arguments = new ArgumentSplitter(args);
         String[] option = arguments.options;
         String [] files = arguments.files;
