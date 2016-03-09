@@ -6,25 +6,21 @@ public class Person {
     private String gender;
     private Address address;
     private Name name;
-    private int HowOldAreU;
+    private int age;
 
     public Person(Name name, String gender, Address address, int age) {
         this.name = name;
         this.gender = gender;
         this.address = address;
-        this.HowOldAreU = age;
-    }
-
-    public String getCountry() {
-        return address.getCountry();
+        this.age = age;
     }
 
     public boolean  isFromCountry(String otherCountry){
-        return address.getCountry().equals(otherCountry);
+        return address.isFromCountry(otherCountry);
     }
 
     public int HowOldAreYou() {
-        return HowOldAreU;
+        return age;
     }
 
     public String represent(Representation representation) {
