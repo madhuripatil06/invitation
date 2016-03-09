@@ -13,9 +13,10 @@ public class GuestList {
     public void add(String person) {
         String[] guestInfo = person.split(",");
         int age = Integer.parseInt(guestInfo[3]);
-        Name name = new Name(guestInfo[0], guestInfo[1],guestInfo[2]);
+        Name name = new Name(guestInfo[0], guestInfo[1]);
         Address address = new Address(guestInfo[4], guestInfo[5], guestInfo[6]);
-        Person guest = new Person(name,age,address);
+        String gender =  guestInfo[2];
+        Person guest = new Person(name,gender, address, age);
         guests.add(guest);
     }
 

@@ -42,4 +42,26 @@ public class ArgumentSplitterTest {
         assertEquals(1, argumentSplitter.getFilters().size());
         assertArrayEquals(files, argumentSplitter.files);
     }
+
+    @Test
+    public void testAddTheFiltersToAddAgeFilterToIt() throws Exception {
+        String [] options = {"-above9","hello.txt"};
+        ArgumentSplitter argumentSplitter = new ArgumentSplitter(options);
+        String [] expectedOptions = {"-f"};
+        assertArrayEquals(expectedOptions, argumentSplitter.options);
+        String [] files = {"hello.txt"};
+        assertEquals(1, argumentSplitter.getFilters().size());
+        assertArrayEquals(files, argumentSplitter.files);
+    }
+
+    @Test
+    public void testAddTheFiltersToAddBothAgeFilterAndCountryFilter() throws Exception {
+        String [] options = {"-fromBangladesh","-above9","hello.txt"};
+        ArgumentSplitter argumentSplitter = new ArgumentSplitter(options);
+        String [] expectedOptions = {"-f"};
+        assertArrayEquals(expectedOptions, argumentSplitter.options);
+        String [] files = {"hello.txt"};
+        assertEquals(2, argumentSplitter.getFilters().size());
+        assertArrayEquals(files, argumentSplitter.files);
+    }
 }

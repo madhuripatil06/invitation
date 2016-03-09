@@ -19,19 +19,25 @@ public class ArgumentSplitter {
         return file.trim().split(" ");
     }
 
+    private void addFilters(String option){
+        if (option.substring(0, 5).equals("-from")) {
+            String country = option.substring(5);
+            filters.add(new CountryFilter(country));
+        }
+        else if (option.substring(0, 6).equals("-above")) {
+            int age = Integer.parseInt(option.substring(6));
+            filters.add(new AgeFilter(age));
+        }
+    }
+
+
     private String[] splitoptions(String[] options) {
         String allOptions = "";
         for (String option : options) {
             if (option.charAt(0) == '-') {
                 if (option.length() == 2)
                     allOptions += option + " ";
-                else if (option.substring(0, 5).equals("-from")) {
-                    String country = option.substring(5);
-                    filters.add(new CountryFilter(country));
-                } else if (option.substring(0, 6).equals("-above")) {
-                    int age = Integer.parseInt(option.substring(6));
-                    filters.add(new AgeFilter(age));
-                }
+                else addFilters(option);
             }
         }
         if (allOptions.equals(""))

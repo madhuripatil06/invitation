@@ -7,7 +7,7 @@ public class CountryFilter implements Filter {
 
     @Override
     public boolean isValid(Person guest) {
-        return guest.getCountry().equals(country);
+        return guest.isFromCountry(country);
     }
 
     @Override

@@ -7,9 +7,9 @@ import static org.junit.Assert.assertTrue;
 public class CountryFilterTest {
     @Test
     public void testCountryFilterTocheckifTheGivenPersonIsFromIt() throws Exception {
-        Name name = new Name("abc","xyz","Male");
+        Name name = new Name("abc","xyz");
         Address address = new Address("bengluru","karnataka","India");
-        Person person = new Person(name,67,address);
+        Person person = new Person(name, "Male", address, 67);
 
         CountryFilter filter = new CountryFilter("India");
         assertTrue(filter.isValid(person));
@@ -18,9 +18,9 @@ public class CountryFilterTest {
 
     @Test
     public void testCountryFilterForTheInvalidPerson() throws Exception {
-        Name name = new Name("abc","xyz","Male");
+        Name name = new Name("abc","xyz");
         Address address = new Address("bengluru","karnataka","India");
-        Person person = new Person(name,67,address);
+        Person person = new Person(name, "Male", address, 67);
 
         CountryFilter filter = new CountryFilter("USA");
         assertFalse(filter.isValid(person));
