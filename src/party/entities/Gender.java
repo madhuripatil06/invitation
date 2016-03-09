@@ -1,3 +1,5 @@
+package party.entities;
+
 public enum Gender {
     Male("Mr"),
     Female("Ms");

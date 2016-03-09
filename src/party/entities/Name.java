@@ -1,3 +1,7 @@
+package party.entities;
+
+import party.nameRepresentation.Representation;
+
 public class Name {
     private String firstName;
     private String lastName;
@@ -7,11 +11,7 @@ public class Name {
         this.lastName = lastName;
     }
 
-    public String nameFirstLast(){
-        return  this.firstName+" "+this.lastName;
-    }
-
-    public String nameLastFirst(){
-        return this.lastName+", "+this.firstName;
+    public String represent(Representation representation) {
+        return representation.represent(firstName,lastName);
     }
 }

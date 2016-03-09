@@ -1,4 +1,11 @@
 import org.junit.Test;
+import party.entities.Address;
+import party.entities.Name;
+import party.entities.Person;
+import party.nameRepresentation.FirstLast;
+import party.nameRepresentation.LastFirst;
+import party.nameRepresentation.Representation;
+
 import static org.junit.Assert.assertEquals;
 
 public class PersonTest {
@@ -7,8 +14,8 @@ public class PersonTest {
         Name name = new Name("abc", "xyz");
         Address address = new Address( "bengluru", "karnataka", "india");
         Person person = new Person(name, "Male", address, 23);
-        String nameInOrderFirstLast = person.getNameInOrderFirstLast();
-        assertEquals("Mr abc xyz",nameInOrderFirstLast);
+        Representation representation = new FirstLast();
+        assertEquals("Mr abc xyz",person.represent(representation));
     }
 
     @Test
@@ -16,8 +23,8 @@ public class PersonTest {
         Name name = new Name("abc", "xyz");
         Address address = new Address( "bengluru", "karnataka", "india");
         Person person = new Person(name, "Male", address, 23);
-        String nameInOrderLastFirst = person.getNameInOrderLastFirst();
-        assertEquals("Mr xyz, abc",nameInOrderLastFirst);
+        Representation representation = new LastFirst();
+        assertEquals("Mr xyz, abc",person.represent(representation));
     }
 
     @Test
@@ -25,7 +32,8 @@ public class PersonTest {
         Name name = new Name("mili", "deo");
         Address address = new Address( "haldia", "westBengal", "India");
         Person person = new Person(name, "Female", address, 20);
-        String nameInOrderFirstLast = person.getNameInOrderFirstLast();
+        Representation representation = new FirstLast();
+        String nameInOrderFirstLast = person.represent(representation);
         assertEquals("Ms mili deo",nameInOrderFirstLast);
     }
 
@@ -34,7 +42,15 @@ public class PersonTest {
         Name name = new Name("mili", "deo");
         Address address = new Address( "haldia", "westBengal", "India");
         Person person = new Person(name, "Female", address, 20);
-        String nameInOrderLastFirst = person.getNameInOrderLastFirst();
-        assertEquals("Ms deo, mili",nameInOrderLastFirst);
+        Representation representation = new LastFirst();
+        assertEquals("Ms deo, mili",person.represent(representation));
+    }
+    @Test
+    public void testForThePersonToNotChangeHisAge() throws Exception {
+        Name name = new Name("mili", "deo");
+        Address address = new Address( "haldia", "westBengal", "India");
+        Person person = new Person(name, "Female", address, 20);
+        int age = person.HowOldAreYou();
+        assertEquals(20,person.HowOldAreYou());
     }
 }

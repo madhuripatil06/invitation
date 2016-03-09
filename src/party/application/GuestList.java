@@ -1,3 +1,13 @@
+package party.application;
+
+import party.entities.Address;
+import party.entities.Name;
+import party.entities.Person;
+import party.filters.Filter;
+import party.nameRepresentation.FirstLast;
+import party.nameRepresentation.LastFirst;
+import party.nameRepresentation.Representation;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,10 +31,10 @@ public class GuestList {
     }
 
     public String getName(Person guest, String option) {
-        HashMap<String, String> name = new HashMap<String, String>();
-        name.put("-f", guest.getNameInOrderFirstLast());
-        name.put("-l", guest.getNameInOrderLastFirst());
-        return name.get(option);
+        HashMap<String, Representation> name = new HashMap<String , Representation>();
+        name.put("-f", new FirstLast());
+        name.put("-l", new LastFirst());
+        return guest.represent(name.get(option));
     }
 
     private String filterForEachFilter(Person guest) {
@@ -39,7 +49,7 @@ public class GuestList {
 
     public void print(String[] options) {
         for (Person guest : guests) {
-            if (filters == null)
+            if (filters.size() == 0)
                 System.out.println(getName(guest, options[0]));
             String filteredOutput = filterForEachFilter(guest);
             if (!filteredOutput.equals("")) {

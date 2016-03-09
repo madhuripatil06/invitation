@@ -1,4 +1,8 @@
-public class CountryFilter implements Filter {
+package party.filters;
+
+import party.entities.Person;
+
+public class CountryFilter implements  Filter{
     private String country;
 
     public CountryFilter(String country) {

@@ -1,4 +1,11 @@
-import java.io.*;
+package party.application;
+
+import party.operator.ArgumentSplitter;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class PrintLabel {
     public static void main(String[] args) throws IOException{

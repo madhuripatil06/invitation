@@ -1,4 +1,8 @@
+import party.filters.AgeFilter;
 import org.junit.Test;
+import party.entities.Address;
+import party.entities.Name;
+import party.entities.Person;
 
 import static org.junit.Assert.*;
 

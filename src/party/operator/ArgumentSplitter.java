@@ -1,3 +1,9 @@
+package party.operator;
+
+import party.filters.AgeFilter;
+import party.filters.CountryFilter;
+import party.filters.Filter;
+
 import java.util.ArrayList;
 
 public class ArgumentSplitter {
