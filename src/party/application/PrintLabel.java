@@ -13,7 +13,7 @@ public class PrintLabel {
         String[] option = arguments.options;
         String [] files = arguments.files;
         for (String file : files) {
-            GuestList guests = new GuestList(arguments.getFilters());
+            GuestList guests = new GuestList(arguments.filters);
             FileReader fr = new FileReader( new File(file));
             BufferedReader br = new BufferedReader(fr);
             while(br.readLine() != null){

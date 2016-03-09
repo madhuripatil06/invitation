@@ -40,7 +40,7 @@ public class ArgumentSplitterTest {
         String [] expectedOptions = {"-l"};
         assertArrayEquals(expectedOptions, argumentSplitter.options);
         String [] files = {"hello.txt","world.txt"};
-        assertEquals(1, argumentSplitter.getFilters().size());
+        assertEquals(1, argumentSplitter.filters.size());
         assertArrayEquals(files, argumentSplitter.files);
     }
 
@@ -51,7 +51,7 @@ public class ArgumentSplitterTest {
         String [] expectedOptions = {"-f"};
         assertArrayEquals(expectedOptions, argumentSplitter.options);
         String [] files = {"hello.txt"};
-        assertEquals(1, argumentSplitter.getFilters().size());
+        assertEquals(1, argumentSplitter.filters.size());
         assertArrayEquals(files, argumentSplitter.files);
     }
 
@@ -62,7 +62,7 @@ public class ArgumentSplitterTest {
         String [] expectedOptions = {"-f"};
         assertArrayEquals(expectedOptions, argumentSplitter.options);
         String [] files = {"hello.txt"};
-        assertEquals(2, argumentSplitter.getFilters().size());
+        assertEquals(2, argumentSplitter.filters.size());
         assertArrayEquals(files, argumentSplitter.files);
     }
 }

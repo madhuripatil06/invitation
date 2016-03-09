@@ -11,13 +11,18 @@ import party.nameRepresentation.Representation;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class GuestList {
     private ArrayList<Person> guests;
     private ArrayList<Filter> filters;
+    private HashMap<String, Representation> name ;
 
     public GuestList(ArrayList<Filter> filters) {
         this.filters = filters;
         this.guests = new ArrayList<Person>();
+        this.name = new HashMap<String , Representation>();
+        this.name.put("-f", new FirstLast());
+        this.name.put("-l", new LastFirst());
     }
 
     private Boolean isValid(Person guest){
@@ -40,13 +45,10 @@ public class GuestList {
     }
 
     public String getName(Person guest, String option) {
-        HashMap<String, Representation> name = new HashMap<String , Representation>();
-        name.put("-f", new FirstLast());
-        name.put("-l", new LastFirst());
         return guest.represent(name.get(option));
     }
 
-    private String filterForEachFilter(Person guest) {
+    private String askForData(Person guest) {
         String result = "";
         for (Filter filter : filters) {
             result += ", "+filter.getEntity(guest);
@@ -59,7 +61,7 @@ public class GuestList {
             if (filters.size() == 0)
                 System.out.println(getName(guest, options[0]));
             else {
-                String filteredOutput = filterForEachFilter(guest);
+                String filteredOutput = askForData(guest);
                 System.out.println(getName(guest, options[0]) + filteredOutput);
             }
         }
