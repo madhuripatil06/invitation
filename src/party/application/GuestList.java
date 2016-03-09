@@ -4,25 +4,17 @@ import party.entities.Address;
 import party.entities.Name;
 import party.entities.Person;
 import party.filters.Filter;
-import party.nameRepresentation.FirstLast;
-import party.nameRepresentation.LastFirst;
-import party.nameRepresentation.Representation;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class GuestList {
     private ArrayList<Person> guests;
     private ArrayList<Filter> filters;
-    private HashMap<String, Representation> name ;
 
     public GuestList(ArrayList<Filter> filters) {
         this.filters = filters;
         this.guests = new ArrayList<Person>();
-        this.name = new HashMap<String , Representation>();
-        this.name.put("-f", new FirstLast());
-        this.name.put("-l", new LastFirst());
     }
 
     private Boolean isValid(Person guest){
@@ -44,10 +36,6 @@ public class GuestList {
             guests.add(guest);
     }
 
-    public String getName(Person guest, String option) {
-        return guest.represent(name.get(option));
-    }
-
     private String askForData(Person guest) {
         String result = "";
         for (Filter filter : filters) {
@@ -58,12 +46,9 @@ public class GuestList {
 
     public void print(String[] options) {
         for (Person guest : guests) {
-            if (filters.size() == 0)
-                System.out.println(getName(guest, options[0]));
-            else {
-                String filteredOutput = askForData(guest);
-                System.out.println(getName(guest, options[0]) + filteredOutput);
-            }
+            PrintStyle printStyle = new PrintStyle(options[0]);
+            String filteredOutput = askForData(guest);
+            printStyle.PrintInformation(guest,filteredOutput);
         }
     }
 }
