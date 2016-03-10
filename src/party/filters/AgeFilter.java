@@ -11,11 +11,11 @@ public class AgeFilter implements Filter {
 
     @Override
     public boolean isValid(Person guest) {
-        return guest.HowOldAreYou() >= age;
+        return guest.howOldAreYou() >= age;
     }
 
     @Override
     public String getEntity(Person guest) {
-        return guest.HowOldAreYou()+"";
+        return guest.howOldAreYou()+"";
     }
 }

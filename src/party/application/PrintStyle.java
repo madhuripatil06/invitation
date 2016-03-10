@@ -18,11 +18,11 @@ public class PrintStyle {
         this.style = style;
     }
 
-    public String getName(Person guest, String option) {
+    private String getName(Person guest, String option) {
         return guest.represent(name.get(option));
     }
-
-    public void PrintInformation(Person guest, String filteredData) {
-        System.out.println(getName(guest, style) + filteredData);
+    
+    public String StyleInformation(Person guest, String filteredData) {
+        return getName(guest, style) + filteredData;
     }
 }

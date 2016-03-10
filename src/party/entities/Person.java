@@ -19,7 +19,7 @@ public class Person {
         return address.isFromCountry(otherCountry);
     }
 
-    public int HowOldAreYou() {
+    public int howOldAreYou() {
         return age;
     }
 

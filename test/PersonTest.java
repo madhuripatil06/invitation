@@ -50,7 +50,7 @@ public class PersonTest {
         Name name = new Name("mili", "deo");
         Address address = new Address("India");
         Person person = new Person(name, "Female", address, 20);
-        int age = person.HowOldAreYou();
-        assertEquals(20,person.HowOldAreYou());
+        int age = person.howOldAreYou();
+        assertEquals(20,person.howOldAreYou());
     }
 }

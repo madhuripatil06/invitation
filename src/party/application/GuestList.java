@@ -7,7 +7,6 @@ import party.filters.Filter;
 
 import java.util.ArrayList;
 
-
 public class GuestList {
     private ArrayList<Person> guests;
     private ArrayList<Filter> filters;
@@ -45,10 +44,10 @@ public class GuestList {
     }
 
     public void print(String[] options) {
+        PrintStyle printStyle = new PrintStyle(options[0]);
         for (Person guest : guests) {
-            PrintStyle printStyle = new PrintStyle(options[0]);
             String filteredOutput = askForData(guest);
-            printStyle.PrintInformation(guest,filteredOutput);
+            System.out.println(printStyle.StyleInformation(guest,filteredOutput));
         }
     }
 }
