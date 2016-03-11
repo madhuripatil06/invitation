@@ -18,13 +18,15 @@ public class PrintLabel {
 
     public static void main(String[] args) throws IOException{
         ArgumentSplitter arguments = new ArgumentSplitter(args);
-        Printer systemOutPrinter = new TerminalPrinter();
+//        Printer systemOutPrinter = new TerminalPrinter();
+        Printer invitationCoverPrinter = new InvitationCoverPrinter();
         String[] option = arguments.options;
         String [] files = arguments.files;
         for (String file : files) {
             CreateGuestList guests = new CreateGuestList(arguments.filters);
             addGuestsToList(file,guests);
-            systemOutPrinter.print(guests.sortedGuests(),arguments.filters,option[0]);
+            invitationCoverPrinter.print(guests.sortedGuests(),arguments.filters,option[0]);
+//            systemOutPrinter.print(guests.sortedGuests(),arguments.filters,option[0]);
         }
     }
 

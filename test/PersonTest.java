@@ -12,7 +12,7 @@ public class PersonTest {
     @Test
     public void testForThePersonclassToGetTheNameofThePersonForMale() throws Exception {
         Name name = new Name("abc", "xyz");
-        Address address = new Address("india");
+        Address address = new Address("", "", "india");
         Person person = new Person(name, "Male", address, 23);
         Representation representation = new FirstLast();
         assertEquals("Mr abc xyz",person.represent(representation));
@@ -21,7 +21,7 @@ public class PersonTest {
     @Test
     public void testForThePersonToGetTheNameInFormalWayForFemale() throws Exception {
         Name name = new Name("abc", "xyz");
-        Address address = new Address("india");
+        Address address = new Address("", "", "india");
         Person person = new Person(name, "Male", address, 23);
         Representation representation = new LastFirst();
         assertEquals("Mr xyz, abc",person.represent(representation));
@@ -30,7 +30,7 @@ public class PersonTest {
     @Test
     public void testForThePersonToGetNameOfAFemaleInInformalWay() throws Exception {
         Name name = new Name("mili", "deo");
-        Address address = new Address("India");
+        Address address = new Address("", "", "India");
         Person person = new Person(name, "Female", address, 20);
         Representation representation = new FirstLast();
         String nameInOrderFirstLast = person.represent(representation);
@@ -40,7 +40,7 @@ public class PersonTest {
     @Test
     public void testForThePersonToGetNameOfAFemaleInFormalWay() throws Exception {
         Name name = new Name("mili", "deo");
-        Address address = new Address("India");
+        Address address = new Address("", "", "India");
         Person person = new Person(name, "Female", address, 20);
         Representation representation = new LastFirst();
         assertEquals("Ms deo, mili",person.represent(representation));
@@ -48,7 +48,7 @@ public class PersonTest {
     @Test
     public void testForThePersonToNotChangeHisAge() throws Exception {
         Name name = new Name("mili", "deo");
-        Address address = new Address("India");
+        Address address = new Address("", "", "India");
         Person person = new Person(name, "Female", address, 20);
         int age = person.howOldAreYou();
         assertEquals(20,person.howOldAreYou());

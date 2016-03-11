@@ -23,6 +23,10 @@ public class Person {
         return age;
     }
 
+    public String address(){
+        return address.toString();
+    }
+
     public String represent(Representation representation) {
         return String.format("%s%s", Gender.valueOf(gender), name.represent(representation));
     }

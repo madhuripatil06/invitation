@@ -10,7 +10,7 @@ public class AgeFilterTest {
     @Test
     public void testForThePersonAboveTheGivenAge() throws Exception {
         Name name = new Name("abc","xyz");
-        Address address = new Address("India");
+        Address address = new Address("", "", "India");
         Person person = new Person(name, "Male", address, 67);
         AgeFilter ageFilter = new AgeFilter(23);
         assertTrue(ageFilter.isValid(person));
@@ -19,7 +19,7 @@ public class AgeFilterTest {
     @Test
     public void testForThePersonAboveTheGivenAgeIfThePersonIsNotValid() throws Exception {
         Name name = new Name("abc","xyz");
-        Address address = new Address("India");
+        Address address = new Address("", "", "India");
         Person person = new Person(name, "Male", address, 9);
         AgeFilter ageFilter = new AgeFilter(23);
         assertFalse(ageFilter.isValid(person));

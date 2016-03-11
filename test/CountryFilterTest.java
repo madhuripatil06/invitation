@@ -12,7 +12,7 @@ public class CountryFilterTest {
     @Test
     public void testCountryFilterTocheckifTheGivenPersonIsFromIt() throws Exception {
         Name name = new Name("abc","xyz");
-        Address address = new Address("India");
+        Address address = new Address("", "", "India");
         Person person = new Person(name, "Male", address, 67);
 
         CountryFilter filter = new CountryFilter("India");
@@ -23,7 +23,7 @@ public class CountryFilterTest {
     @Test
     public void testCountryFilterForTheInvalidPerson() throws Exception {
         Name name = new Name("abc","xyz");
-        Address address = new Address("India");
+        Address address = new Address("", "", "India");
         Person person = new Person(name, "Male", address, 67);
 
         CountryFilter filter = new CountryFilter("USA");

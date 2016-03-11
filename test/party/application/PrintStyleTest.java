@@ -11,7 +11,7 @@ public class PrintStyleTest {
     public void testForThePrintingStyleToGetTheNameInFirstLastOrdeForNoFilter() throws Exception {
         PrintStyle printStyle = new PrintStyle("-f");
         Name name = new Name("abc", "xyz");
-        Address india = new Address("India");
+        Address india = new Address("", "", "India");
         int age = 90;
         String gender = "Male";
         Person person = new Person(name, gender, india, age);
@@ -23,7 +23,7 @@ public class PrintStyleTest {
     public void testForThePrintingStyleToGetTheNameInFirstLastOrdeForNoFilterFemale() throws Exception {
         PrintStyle printStyle = new PrintStyle("-f");
         Name name = new Name("abc", "xyz");
-        Address india = new Address("India");
+        Address india = new Address("", "", "India");
         int age = 90;
         String gender = "Female";
         Person person = new Person(name, gender, india, age);
@@ -35,7 +35,7 @@ public class PrintStyleTest {
     public void testForThePrintingStyleToGetTheNameInFirstLastOrdeWithCountryFilterFemale() throws Exception {
         PrintStyle printStyle = new PrintStyle("-f");
         Name name = new Name("abc", "xyz");
-        Address india = new Address("India");
+        Address india = new Address("", "", "India");
         int age = 90;
         String gender = "Female";
         Person person = new Person(name, gender, india, age);
@@ -47,7 +47,7 @@ public class PrintStyleTest {
     public void testForThePrintingStyleToGetTheNameInFirstLastOrdeWithAgeFilterFemale() throws Exception {
         PrintStyle printStyle = new PrintStyle("-f");
         Name name = new Name("abc", "xyz");
-        Address india = new Address("India");
+        Address india = new Address("", "", "India");
         int age = 90;
         String gender = "Female";
         Person person = new Person(name, gender, india, age);
@@ -59,7 +59,7 @@ public class PrintStyleTest {
     public void testForThePrintingStyleToGetTheNameInFirstLastOrdeWithNoFilterFemaleFormally() throws Exception {
         PrintStyle printStyle = new PrintStyle("-l");
         Name name = new Name("abc", "xyz");
-        Address india = new Address("India");
+        Address india = new Address("", "", "India");
         int age = 90;
         String gender = "Female";
         Person person = new Person(name, gender, india, age);
