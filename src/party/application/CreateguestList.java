@@ -28,7 +28,7 @@ public class CreateGuestList {
         String[] guestInfo = person.split(",");
         int age = Integer.parseInt(guestInfo[3]);
         Name name = new Name(guestInfo[0], guestInfo[1]);
-        Address address = new Address(guestInfo[6]);
+        Address address = new Address(guestInfo[4], guestInfo[5], guestInfo[6]);
         String gender = guestInfo[2];
         Person guest = new Person(name, gender, address, age);
         if (isValid(guest))

@@ -1,10 +1,8 @@
 import org.junit.Test;
+import party.application.Style;
 import party.entities.Address;
 import party.entities.Name;
 import party.entities.Person;
-import party.nameRepresentation.FirstLast;
-import party.nameRepresentation.LastFirst;
-import party.nameRepresentation.Representation;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,7 +12,7 @@ public class PersonTest {
         Name name = new Name("abc", "xyz");
         Address address = new Address("", "", "india");
         Person person = new Person(name, "Male", address, 23);
-        Representation representation = new FirstLast();
+        Style representation = Style.FirstLast;
         assertEquals("Mr abc xyz",person.represent(representation));
     }
 
@@ -23,7 +21,7 @@ public class PersonTest {
         Name name = new Name("abc", "xyz");
         Address address = new Address("", "", "india");
         Person person = new Person(name, "Male", address, 23);
-        Representation representation = new LastFirst();
+        Style representation = Style.LastFirst;
         assertEquals("Mr xyz, abc",person.represent(representation));
     }
 
@@ -32,7 +30,7 @@ public class PersonTest {
         Name name = new Name("mili", "deo");
         Address address = new Address("", "", "India");
         Person person = new Person(name, "Female", address, 20);
-        Representation representation = new FirstLast();
+    Style representation = Style.FirstLast;
         String nameInOrderFirstLast = person.represent(representation);
         assertEquals("Ms mili deo",nameInOrderFirstLast);
     }
@@ -42,7 +40,7 @@ public class PersonTest {
         Name name = new Name("mili", "deo");
         Address address = new Address("", "", "India");
         Person person = new Person(name, "Female", address, 20);
-        Representation representation = new LastFirst();
+        Style representation = Style.LastFirst;
         assertEquals("Ms deo, mili",person.represent(representation));
     }
     @Test

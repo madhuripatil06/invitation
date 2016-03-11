@@ -1,8 +1,8 @@
 package party.entities;
 
 public enum Gender {
-    Male("Mr"),
-    Female("Ms");
+    MALE("Mr"),
+    FEMALE("Ms");
     private String gender;
 
     Gender(String gender) {

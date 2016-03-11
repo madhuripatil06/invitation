@@ -1,6 +1,6 @@
 package party.entities;
 
-import party.nameRepresentation.Representation;
+import party.application.Style;
 
 public class Person {
     private String gender;
@@ -27,7 +27,7 @@ public class Person {
         return address.toString();
     }
 
-    public String represent(Representation representation) {
-        return String.format("%s%s", Gender.valueOf(gender), name.represent(representation));
+    public String represent(Style style){
+            return Gender.valueOf(gender.toUpperCase()) +name.represent(style);
     }
 }

@@ -1,28 +1,24 @@
-package party.application;
-
-import party.entities.Person;
-import party.nameRepresentation.FirstLast;
-import party.nameRepresentation.LastFirst;
-import party.nameRepresentation.Representation;
-
-import java.util.HashMap;
-
-public class PrintStyle {
-    private String style;
-    private HashMap<String, Representation> name;
-
-    public PrintStyle(String style) {
-        this.name = new HashMap<String, Representation>();
-        this.name.put("-f", new FirstLast());
-        this.name.put("-l", new LastFirst());
-        this.style = style;
-    }
-
-    private String getName(Person guest, String option) {
-        return guest.represent(name.get(option));
-    }
-    
-    public String StyleInformation(Person guest, String filteredData) {
-        return getName(guest, style) + filteredData;
-    }
-}
+//package party.application;
+//
+//public enum  PrintStyle {
+//    FirstLast("-f"), LastFirst("-l");
+//
+//    private String option;
+//
+//    PrintStyle(String option) {
+//
+//        this.option = option;
+//    }
+//    public static PrintStyle parse(String option){
+//        for (PrintStyle style : PrintStyle.values()) {
+//            if(style.option == option)
+//                return style;
+//        }
+//        return null;
+//    }
+//
+//    public String represent(String first, String last) {
+//        if(this == FirstLast)
+//            return first +" "+last;
+//    }
+//}

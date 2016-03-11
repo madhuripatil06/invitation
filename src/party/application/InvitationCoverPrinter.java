@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public class InvitationCoverPrinter implements Printer {
     @Override
     public void print(ArrayList<Person> guests, ArrayList<Filter> filters, String option) {
-        PrintStyle printStyle = new PrintStyle(option);
+        Style printStyle = Style.parse(option);
         for (Person guest : guests) {
-            String name = printStyle.StyleInformation(guest, null);
+            String name = guest.represent(printStyle);
             String address = guest.address();
             printCover(name,address);
         }
@@ -27,12 +27,9 @@ public class InvitationCoverPrinter implements Printer {
         return  String.format("%s%s%s","+",generateDashes(),"+");
     }
 
-
     private String generateMiddleBoder(){
         return String.format("%s%s%s","|",generateDashes(),"|");
     }
-
-
 
     private void printCover(String name, String address) {
         String [] addressEntities = address.split(", ");
