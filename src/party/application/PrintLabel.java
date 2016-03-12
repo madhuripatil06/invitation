@@ -2,29 +2,30 @@ package party.application;
 
 import party.operator.ArgumentSplitter;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class PrintLabel {
-    private static void addGuestsToList(String file,CreateGuestList guestList) throws IOException{
-        FileReader fr = new FileReader( new File(file));
-        BufferedReader br = new BufferedReader(fr);
-        while(br.readLine() != null){
-            guestList.add(br.readLine());
+    private static String readFile(String file) throws IOException{
+        File file1 = new File(file);
+        FileInputStream in = new FileInputStream(file1);
+        String data = "";
+        for(int index = 0 ;index < file1.length() ;index++){
+            data += (char)in.read();
         }
+        return data;
     }
 
     public static void main(String[] args) throws IOException{
         ArgumentSplitter arguments = new ArgumentSplitter(args);
         Printer invitationCoverPrinter = new InvitationCoverPrinter();
-        String[] option = arguments.options;
-        String [] files = arguments.files;
+        String[] option = arguments.getStyle();
+        String [] files = arguments.getFiles();
         for (String file : files) {
-            CreateGuestList guests = new CreateGuestList(arguments.filters);
-            addGuestsToList(file,guests);
-            invitationCoverPrinter.print(guests.sortedGuests(),arguments.filters,option[0]);
+            String data = readFile(file);
+            CreateGuestList guests = new CreateGuestList(data);
+            guests.createList();
+            FilterList filtredData = new FilterList(arguments.getFilters(),guests.getList());
+            invitationCoverPrinter.print(filtredData.getFilteredGuest(),arguments.getFilters(),option[0]);
         }
     }
 }

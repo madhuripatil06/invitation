@@ -4,27 +4,24 @@ import party.entities.Address;
 import party.entities.Age;
 import party.entities.Name;
 import party.entities.Person;
-import party.filters.Filter;
 
 import java.util.ArrayList;
 
 public class CreateGuestList {
     private ArrayList<Person> guests;
-    private ArrayList<Filter> filters;
+    private String fileData;
 
-    public CreateGuestList(ArrayList<Filter> filters) {
-        this.filters = filters;
+    public CreateGuestList(String fileData) {
+        this.fileData = fileData;
         this.guests = new ArrayList<Person>();
     }
 
-    private Boolean isValid(Person guest) {
-        for (Filter filter : filters) {
-            if (!filter.isValid(guest))
-                return false;
+    public void createList(){
+        String [] records = fileData.split("\n");
+        for (String record : records) {
+            add(record);
         }
-        return true;
     }
-
     public void add(String person) {
         String[] guestInfo = person.split(",");
         int ageParam = Integer.parseInt(guestInfo[3]);
@@ -33,12 +30,10 @@ public class CreateGuestList {
         String gender = guestInfo[2];
         Age age = new Age(ageParam);
         Person guest = new Person(name, gender, address, age);
-        if (isValid(guest))
             guests.add(guest);
     }
 
-    public ArrayList<Person> sortedGuests() {
+    public ArrayList<Person> getList() {
         return guests;
     }
-
 }

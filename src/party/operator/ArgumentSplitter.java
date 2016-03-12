@@ -7,42 +7,42 @@ import party.filters.Filter;
 import java.util.ArrayList;
 
 public class ArgumentSplitter {
-    public ArrayList<Filter> filters;
-    public String[] files;
-    public String[] options;
+
+    private final String[] arguments;
 
     public ArgumentSplitter(String[] arguments) {
-        this.filters = new ArrayList<Filter>();
-        this.options = splitOptions(arguments);
-        this.files = splitFile(arguments);
+        this.arguments = arguments;
     }
 
-    private String[] splitFile(String[] options) {
+    public String[] getFiles() {
         String file = "";
-        for (String option : options) {
-            if (option.charAt(0) != '-')
-                file += option + " ";
+        for (String argument : arguments) {
+            if (argument.charAt(0) != '-')
+                file += argument + " ";
         }
         return file.trim().split(" ");
     }
 
-    private void addFilters(String option) {
-        if (option.substring(0, 5).equals("-from")) {
-            String country = option.substring(5);
-            filters.add(new CountryFilter(country));
-        } else if (option.substring(0, 6).equals("-above")) {
-            int age = Integer.parseInt(option.substring(6));
-            filters.add(new AgeFilter(age));
+    public ArrayList<Filter> getFilters(){
+        ArrayList<Filter> filters = new ArrayList<Filter>();
+        for (String argument : arguments) {
+            if (argument.length() > 6 && argument.substring(0, 5).equals("-from")) {
+                String country = argument.substring(5);
+                filters.add(new CountryFilter(country));
+            } else if (argument.length() > 6 && argument.substring(0, 6).equals("-above")) {
+                int age = Integer.parseInt(argument.substring(6));
+                filters.add(new AgeFilter(age));
+            }
         }
+        return filters;
     }
 
-    private String[] splitOptions(String[] options) {
+    public String[] getStyle() {
         String allOptions = "";
-        for (String option : options) {
-            if (option.charAt(0) == '-') {
-                if (option.length() == 2)
-                    allOptions += option + " ";
-                else addFilters(option);
+        for (String argument : arguments) {
+            if (argument.charAt(0) == '-') {
+                if (argument.length() == 2)
+                    allOptions += argument + " ";
             }
         }
         if (allOptions.equals(""))
