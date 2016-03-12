@@ -5,11 +5,12 @@ import party.filters.Filter;
 
 import java.util.ArrayList;
 
-public class FilterList {
+public class FilterTheList {
     private ArrayList<Filter> filters;
     private ArrayList<Person> guests;
     private ArrayList<Person> validGuests;
-    public FilterList(ArrayList<Filter> filters , ArrayList<Person>guests) {
+
+    public FilterTheList(ArrayList<Filter> filters , ArrayList<Person>guests) {
         this.filters = filters;
         this.guests = guests;
         this.validGuests = new ArrayList<Person>();

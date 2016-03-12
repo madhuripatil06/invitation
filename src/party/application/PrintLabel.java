@@ -15,7 +15,7 @@ public class PrintLabel {
             String data = file_reader.getData();
             CreateGuestList guests = new CreateGuestList(data);
             guests.createList();
-            FilterList filtredData = new FilterList(arguments.getFilters(),guests.getList());
+            FilterTheList filtredData = new FilterTheList(arguments.getFilters(),guests.getList());
             invitationCoverPrinter.print(filtredData.getFilteredGuest(),arguments.getFilters(),option[0]);
         }
     }
