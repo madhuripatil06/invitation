@@ -70,7 +70,7 @@ public class CreteguestListTest {
         ArrayList<Person> sortedGuests = guests.sortedGuests();
         int size = sortedGuests.size();
         for (Person sortedGuest : sortedGuests) {
-            assertTrue(sortedGuest.howOldAreYou() >= 25);
+            assertTrue(sortedGuest.isAbove(25));
         }
         assertEquals(3,size);
     }
@@ -91,7 +91,7 @@ public class CreteguestListTest {
         int size = sortedGuests.size();
         for (Person guest : sortedGuests) {
             assertTrue(guest.isFromCountry("Romania"));
-            assertTrue(guest.howOldAreYou() >= 31);
+            assertTrue(guest.isAbove(31));
         }
         assertEquals(1,size);
     }

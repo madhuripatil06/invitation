@@ -7,7 +7,7 @@ public abstract class Style{
 
     public static final Style FirstLast = new FirstLast(), LastFirst = new LastFirst();
     public static Style parse(String option){
-        Style[] items = new Style[]{FirstLast,LastFirst};
+        Style[] items = new Style[]{FirstLast, LastFirst};
         for (Style item : items) {
             if(item.option.equals(option)) return item;
         }

@@ -11,7 +11,7 @@ public class AgeFilter implements Filter {
 
     @Override
     public boolean isValid(Person guest) {
-        return guest.howOldAreYou() >= age;
+        return guest.isAbove(age);
     }
 
     @Override

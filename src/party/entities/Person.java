@@ -6,11 +6,11 @@ public class Person {
     private String gender;
     private Address address;
     private Name name;
-    private int age;
+    private Age age;
 
-    public Person(Name name, String gender, Address address, int age) {
+    public Person(Name name, String gender, Address address, Age age) {
         this.name = name;
-        this.gender = gender;
+        this.gender = String.valueOf(Gender.valueOf(gender.toUpperCase()));
         this.address = address;
         this.age = age;
     }
@@ -19,8 +19,8 @@ public class Person {
         return address.isFromCountry(otherCountry);
     }
 
-    public int howOldAreYou() {
-        return age;
+    public String howOldAreYou() {
+        return age.toText();
     }
 
     public String address(){
@@ -28,6 +28,10 @@ public class Person {
     }
 
     public String represent(Style style){
-            return Gender.valueOf(gender.toUpperCase()) +name.represent(style);
+            return gender+name.represent(style);
+    }
+
+    public boolean isAbove(int ageparam) {
+        return age.isAbove(ageparam);
     }
 }

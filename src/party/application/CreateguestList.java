@@ -1,6 +1,7 @@
 package party.application;
 
 import party.entities.Address;
+import party.entities.Age;
 import party.entities.Name;
 import party.entities.Person;
 import party.filters.Filter;
@@ -26,10 +27,11 @@ public class CreateGuestList {
 
     public void add(String person) {
         String[] guestInfo = person.split(",");
-        int age = Integer.parseInt(guestInfo[3]);
+        int ageParam = Integer.parseInt(guestInfo[3]);
         Name name = new Name(guestInfo[0], guestInfo[1]);
         Address address = new Address(guestInfo[4], guestInfo[5], guestInfo[6]);
         String gender = guestInfo[2];
+        Age age = new Age(ageParam);
         Person guest = new Person(name, gender, address, age);
         if (isValid(guest))
             guests.add(guest);
