@@ -2,25 +2,27 @@ package party.application;
 
 import party.entities.Person;
 import party.filters.Filter;
+import party.nameRepresentation.FirstLast;
+import party.nameRepresentation.LastFirst;
+import party.nameRepresentation.Representation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class
 TerminalPrinter implements Printer {
-    private String askForData(Person guest, ArrayList<Filter> filters) {
-        String result = "";
-        for (Filter filter : filters) {
-            result += ", " + filter.getEntity(guest);
-        }
-        return result;
+    private Representation getRepresentation(String option) {
+        HashMap<String , Representation> styles = new HashMap<String, Representation>();
+        styles.put("-f",new FirstLast());
+        styles.put("-l",new LastFirst());
+        return styles.get(option);
     }
 
     @Override
     public void print(ArrayList<Person> guests, ArrayList<Filter> filters, String option) {
-        Style printStyle = Style.parse(option);
+        Representation representation = getRepresentation(option);
         for (Person guest : guests) {
-            String filteredOutput = askForData(guest, filters);
-            System.out.println(guest.represent(printStyle)+filteredOutput);
+            System.out.println(guest.represent(representation, filters));
         }
     }
 }

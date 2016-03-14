@@ -2,18 +2,29 @@ package party.application;
 
 import party.entities.Person;
 import party.filters.Filter;
+import party.nameRepresentation.*;
+import party.nameRepresentation.FirstLast;
+import party.nameRepresentation.LastFirst;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class InvitationCoverPrinter implements Printer {
     @Override
     public void print(ArrayList<Person> guests, ArrayList<Filter> filters, String option) {
-        Style printStyle = Style.parse(option);
+        Representation representation = getRepresentation(option);
         for (Person guest : guests) {
-            String name = guest.represent(printStyle);
+            String name = guest.represent(representation, filters);
             String address = guest.address();
             printCover(name,address);
         }
+    }
+
+    private Representation getRepresentation(String option) {
+        HashMap<String , Representation> styles = new HashMap<String, Representation>();
+        styles.put("-f",new FirstLast());
+        styles.put("-l",new LastFirst());
+        return styles.get(option);
     }
 
     private String generateDashes(){
@@ -32,9 +43,9 @@ public class InvitationCoverPrinter implements Printer {
     }
 
     private void printCover(String name, String address) {
-        String [] addressEntities = address.split(", ");
-        String cityState = addressEntities[0]+", "+addressEntities[1];
-        String country = addressEntities[2];
+        String [] addressEntities = address.split("\n");
+        String cityState = addressEntities[0];
+        String country = addressEntities[1];
         String cover = generateDesign(name,cityState,country);
         System.out.println(cover);
     }

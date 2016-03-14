@@ -1,4 +1,4 @@
-package party.application;
+package party.guestList;
 
 import party.entities.Address;
 import party.entities.Age;

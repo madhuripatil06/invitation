@@ -14,8 +14,4 @@ public class CountryFilter implements  Filter{
         return guest.isFromCountry(country);
     }
 
-    @Override
-    public String getEntity(Person guest) {
-        return country;
-    }
 }

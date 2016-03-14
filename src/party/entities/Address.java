@@ -12,7 +12,7 @@ public class Address {
     }
 
     public String toString(){
-        return String.format("%s, %s, %s",city,state,country);
+        return String.format("%s, %s,\n%s",city,state,country);
     }
 
     public boolean isFromCountry(String otherCountry) {

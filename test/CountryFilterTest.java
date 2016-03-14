@@ -17,7 +17,6 @@ public class CountryFilterTest {
 
         CountryFilter filter = new CountryFilter("India");
         assertTrue(filter.isValid(person));
-        assertEquals(filter.getEntity(person),"India");
     }
 
     @Test
@@ -29,6 +28,5 @@ public class CountryFilterTest {
 
         CountryFilter filter = new CountryFilter("USA");
         assertFalse(filter.isValid(person));
-        assertEquals(filter.getEntity(person),"USA");
     }
 }

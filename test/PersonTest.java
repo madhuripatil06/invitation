@@ -1,9 +1,11 @@
 import org.junit.Test;
-import party.application.Style;
 import party.entities.Address;
 import party.entities.Age;
 import party.entities.Name;
 import party.entities.Person;
+import party.nameRepresentation.FirstLast;
+import party.nameRepresentation.LastFirst;
+import party.nameRepresentation.Representation;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,8 +16,8 @@ public class PersonTest {
         Address address = new Address("", "", "india");
         Age age = new Age(23);
         Person person = new Person(name, "Male", address, age);
-        Style representation = Style.FirstLast;
-        assertEquals("Mr abc xyz", person.represent(representation));
+        Representation representation = new FirstLast();
+        assertEquals("Mr abc xyz", person.represent(representation,null));
     }
 
     @Test
@@ -24,8 +26,8 @@ public class PersonTest {
         Address address = new Address("", "", "india");
         Age age = new Age(23);
         Person person = new Person(name, "Male", address, age);
-        Style representation = Style.LastFirst;
-        assertEquals("Mr xyz, abc", person.represent(representation));
+        Representation representation = new LastFirst();
+        assertEquals("Mr xyz, abc", person.represent(representation,null));
     }
 
     @Test
@@ -34,8 +36,8 @@ public class PersonTest {
         Address address = new Address("", "", "India");
         Age age = new Age(23);
         Person person = new Person(name, "Female", address, age);
-        Style representation = Style.FirstLast;
-        String nameInOrderFirstLast = person.represent(representation);
+        Representation representation = new FirstLast();
+        String nameInOrderFirstLast = person.represent(representation,null);
         assertEquals("Ms mili deo", nameInOrderFirstLast);
     }
 
@@ -45,8 +47,8 @@ public class PersonTest {
         Address address = new Address("", "", "India");
         Age age = new Age(20);
         Person person = new Person(name, "Female", address, age);
-        Style representation = Style.LastFirst;
-        assertEquals("Ms deo, mili", person.represent(representation));
+        Representation representation = new LastFirst();
+        assertEquals("Ms deo, mili", person.represent(representation,null));
     }
 
     @Test

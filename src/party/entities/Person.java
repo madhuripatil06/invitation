@@ -1,6 +1,10 @@
 package party.entities;
 
-import party.application.Style;
+import party.filters.Filter;
+import party.nameRepresentation.Representation;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Person {
     private String gender;
@@ -15,7 +19,7 @@ public class Person {
         this.age = age;
     }
 
-    public boolean  isFromCountry(String otherCountry){
+    public boolean isFromCountry(String otherCountry) {
         return address.isFromCountry(otherCountry);
     }
 
@@ -23,12 +27,31 @@ public class Person {
         return age.toText();
     }
 
-    public String address(){
+    public String address() {
         return address.toString();
     }
 
-    public String represent(Style style){
-            return gender+name.represent(style);
+
+    private String Entities(ArrayList<Filter> filters) {
+        String country = address.toString().split("\n")[1];
+        int ageValue = Integer.parseInt(age.toText());
+
+        HashMap<String, String> entities = new HashMap<String, String>();
+        entities.put("party.filters.CountryFilter", ", " + country);
+        entities.put("party.filters.AgeFilter", ", " + ageValue);
+        String result = "";
+        for (Filter filter : filters) {
+            result += entities.get(filter.toString().split("@")[0]);
+        }
+        return result;
+    }
+
+
+    public String represent(Representation representation, ArrayList<Filter> filters) {
+        String result = gender + name.represent(representation);
+//        if(filters != null)
+//            result +=å Entities(filters);
+        return result;
     }
 
     public boolean isAbove(int ageparam) {

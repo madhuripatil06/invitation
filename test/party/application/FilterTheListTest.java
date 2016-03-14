@@ -6,6 +6,8 @@ import org.junit.Test;
 import party.filters.AgeFilter;
 import party.filters.CountryFilter;
 import party.filters.Filter;
+import party.guestList.CreateGuestList;
+import party.guestList.FilterTheList;
 
 import java.util.ArrayList;
 

@@ -14,8 +14,4 @@ public class AgeFilter implements Filter {
         return guest.isAbove(age);
     }
 
-    @Override
-    public String getEntity(Person guest) {
-        return guest.howOldAreYou()+"";
-    }
 }

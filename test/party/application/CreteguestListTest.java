@@ -2,6 +2,7 @@ package party.application;
 
 import org.junit.Before;
 import org.junit.Test;
+import party.guestList.CreateGuestList;
 
 import static org.junit.Assert.assertEquals;
 

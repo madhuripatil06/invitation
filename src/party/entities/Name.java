@@ -1,6 +1,6 @@
 package party.entities;
 
-import party.application.Style;
+import party.nameRepresentation.Representation;
 
 public class Name {
     private String firstName;
@@ -11,7 +11,7 @@ public class Name {
         this.lastName = lastName;
     }
 
-    public String represent(Style style) {
-        return style.represent(firstName,lastName);
+    public String represent(Representation representation) {
+        return representation.represent(firstName,lastName);
     }
 }

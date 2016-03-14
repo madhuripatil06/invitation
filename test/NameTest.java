@@ -1,6 +1,8 @@
 import org.junit.Test;
-import party.application.Style;
 import party.entities.Name;
+import party.nameRepresentation.FirstLast;
+import party.nameRepresentation.LastFirst;
+import party.nameRepresentation.Representation;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,7 +11,7 @@ public class NameTest {
     public void testForTheNameOfTheMalePersonInFormalWay() throws Exception {
         Name name = new Name("mai", "Idiot");
         String expected = "mai Idiot";
-        Style representation = Style.FirstLast;
+        Representation representation = new FirstLast();
         assertEquals(expected,name.represent(representation));
     }
 
@@ -17,7 +19,7 @@ public class NameTest {
     public void testForTheNameOfTheMalePersonInInformalWay() throws Exception {
         Name name = new Name("mai", "Idiot");
         String expected = "Idiot, mai";
-        Style representation = Style.LastFirst;
+        Representation representation = new LastFirst();
         assertEquals(expected,name.represent(representation));
     }
 
@@ -25,7 +27,7 @@ public class NameTest {
     public void testForTheNameOfFemaleInFormalWay() throws Exception {
         Name name = new Name("mai", "houseWife");
         String expected = "mai houseWife";
-        Style representation = Style.FirstLast;
+        Representation representation = new FirstLast();
         assertEquals(expected,name.represent(representation));
     }
 
@@ -33,7 +35,7 @@ public class NameTest {
     public void testForTheNameOfFemaleInInformalWay() throws Exception {
         Name name = new Name("mai", "houseWife");
         String expected = "houseWife, mai";
-        Style representation = Style.LastFirst;
+        Representation representation = new LastFirst();
         assertEquals(expected,name.represent(representation));
     }
 }
