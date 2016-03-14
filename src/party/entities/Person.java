@@ -23,10 +23,6 @@ public class Person {
         return address.isFromCountry(otherCountry);
     }
 
-    public String howOldAreYou() {
-        return age.toText();
-    }
-
     public String address() {
         return address.toString();
     }
@@ -49,8 +45,8 @@ public class Person {
 
     public String represent(Representation representation, ArrayList<Filter> filters) {
         String result = gender + name.represent(representation);
-//        if(filters != null)
-//            result +=å Entities(filters);
+        if (filters != null)
+            result += Entities(filters);
         return result;
     }
 

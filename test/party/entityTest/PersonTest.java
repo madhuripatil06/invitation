@@ -1,3 +1,5 @@
+package party.entityTest;
+
 import org.junit.Test;
 import party.entities.Address;
 import party.entities.Age;
@@ -49,15 +51,5 @@ public class PersonTest {
         Person person = new Person(name, "Female", address, age);
         Representation representation = new LastFirst();
         assertEquals("Ms deo, mili", person.represent(representation,null));
-    }
-
-    @Test
-    public void testForThePersonToNotChangeHisAge() throws Exception {
-        Name name = new Name("mili", "deo");
-        Address address = new Address("", "", "India");
-        Age age = new Age(20);
-        Person person = new Person(name, "Female", address, age);
-        String ageString = person.howOldAreYou();
-        assertEquals("20", person.howOldAreYou());
     }
 }

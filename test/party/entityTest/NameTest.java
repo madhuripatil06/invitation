@@ -1,3 +1,5 @@
+package party.entityTest;
+
 import org.junit.Test;
 import party.entities.Name;
 import party.nameRepresentation.FirstLast;

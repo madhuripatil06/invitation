@@ -1,3 +1,5 @@
+package party.filterTest;
+
 import org.junit.Test;
 import party.entities.Address;
 import party.entities.Age;

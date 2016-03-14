@@ -1,4 +1,4 @@
-package party.application;
+package party.printers;
 
 import party.entities.Person;
 import party.filters.Filter;
