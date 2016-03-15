@@ -9,12 +9,12 @@ public class PlusDashDesignTest {
     public void PlusDashDesignShouldProvideTheNameAddressInTheDesignForMale() throws Exception {
         Design design = new PlusDashDesign();
         String pattern = design.DesignPattern("Mr Kreiger, Ola","Katlynn view, Vermont,\nRomania");
-        String expected = "+------------------------------+\n"+
-                                   "| Mr Kreiger, Ola              |\n"+
-                                   "|------------------------------|\n"+
-                                   "| Katlynn view, Vermont,       |\n"+
-                                   "| Romania                      |\n"+
-                                   "+------------------------------+\n";
+        String expected = "+------------------------+\n"+
+                                    "| Mr Kreiger, Ola        |\n"+
+                                    "|------------------------|\n"+
+                                    "| Katlynn view, Vermont, |\n"+
+                                    "| Romania                |\n"+
+                                    "+------------------------+\n";
         assertEquals(expected,pattern);
     }
 
@@ -22,12 +22,12 @@ public class PlusDashDesignTest {
     public void PlusDashDesignShouldProvideTheNameAddressInTheDesignForFemale() throws Exception {
         Design design = new PlusDashDesign();
         String pattern = design.DesignPattern("Ms lila, desai","Katlynn view, Vermont,\nRomania");
-        String expected = "+------------------------------+\n"+
-                                    "| Ms lila, desai               |\n"+
-                                    "|------------------------------|\n"+
-                                    "| Katlynn view, Vermont,       |\n"+
-                                    "| Romania                      |\n"+
-                                    "+------------------------------+\n";
+        String expected =  "+------------------------+\n"+
+                                    "| Ms lila, desai         |\n"+
+                                    "|------------------------|\n"+
+                                    "| Katlynn view, Vermont, |\n"+
+                                    "| Romania                |\n"+
+                                    "+------------------------+\n";
         assertEquals(expected,pattern);
     }
 }

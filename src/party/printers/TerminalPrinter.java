@@ -22,7 +22,7 @@ TerminalPrinter implements Printer {
     public void print(ArrayList<Person> guests, ArrayList<Filter> filters, String option) {
         Representation representation = getRepresentation(option);
         for (Person guest : guests) {
-            System.out.println(guest.represent(representation, filters));
+            System.out.println(guest.represent(representation));
         }
     }
 }

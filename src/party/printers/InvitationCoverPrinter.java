@@ -16,7 +16,7 @@ public class InvitationCoverPrinter implements Printer {
     public void print(ArrayList<Person> guests, ArrayList<Filter> filters, String option) {
         Representation representation = getRepresentation(option);
         for (Person guest : guests) {
-            String name = guest.represent(representation, filters);
+            String name = guest.represent(representation);
             String address = guest.address();
             printCover(name,address);
         }

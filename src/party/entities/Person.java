@@ -1,10 +1,6 @@
 package party.entities;
 
-import party.filters.Filter;
 import party.nameRepresentation.Representation;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Person {
     private String gender;
@@ -27,26 +23,8 @@ public class Person {
         return address.toString();
     }
 
-    private String Entities(ArrayList<Filter> filters) {
-        String country = address.toString().split("\n")[1];
-        int ageValue = Integer.parseInt(age.toText());
-
-        HashMap<String, String> entities = new HashMap<String, String>();
-        entities.put("party.filters.CountryFilter", ", " + country);
-        entities.put("party.filters.AgeFilter", ", " + ageValue);
-        String result = "";
-        for (Filter filter : filters) {
-            result += entities.get(filter.toString().split("@")[0]);
-        }
-        return result;
-    }
-
-
-    public String represent(Representation representation, ArrayList<Filter> filters) {
-        String result = gender + name.represent(representation);
-        if (filters != null)
-            result += Entities(filters);
-        return result;
+    public String represent(Representation representation) {
+        return gender + name.represent(representation);
     }
 
     public boolean isAbove(int ageparam) {
