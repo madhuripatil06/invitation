@@ -27,7 +27,6 @@ public class Person {
         return address.toString();
     }
 
-
     private String Entities(ArrayList<Filter> filters) {
         String country = address.toString().split("\n")[1];
         int ageValue = Integer.parseInt(age.toText());
